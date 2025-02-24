@@ -7,11 +7,17 @@ class Quiz(CreatQuiz):
         self.index = 0
 
     def getQuestion(self):
-        return f'Q{self.index+1}: {self.quiz.questionList[self.index].question}'
+        return print(f'Question {self.index+1}: {self.quiz.questionList[self.index].question}\n')
+        
    
+    def getChoices(self):
+        return list(map(print, self.quiz.questionList[self.index].choices))
+        
+
     def start(self):
-        print(self.getQuestion(),self.quiz.questionList[self.index].choices)
-        self.choice(input('Answer: '))
+        self.getQuestion()
+        self.getChoices()
+        self.choice(input('\nAnswer: '))
         self.load()
         
         
